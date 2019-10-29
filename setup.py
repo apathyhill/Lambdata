@@ -9,8 +9,8 @@ REQUIRED = [
 ]
 
 setuptools.setup(
-    name="lambdataapathyhill",
-    version="0.0.6",
+    name="lambdata-apathyhill",
+    version="0.0.8",
     author="ApathyHill",
     description="A small example package",
     long_description=long_description,
