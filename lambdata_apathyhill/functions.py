@@ -3,19 +3,23 @@ import pandas as pd
 
 class DF_Util():
 
-    def __init__(self, df):
-        self.df = df
+    def __init__(self):
 
-    def train_val_test_split(self):
-        mask = np.random.rand(len(df)) < 0.75
-        self.train = self.df[mask]
-        self.test = self.df[~mask]
-        self.val = self.train[mask]
+    def train_val_test_split(self, df, test_percent, val_percent):
+        mask_test = np.random.rand(len(df)) > test_percent
+        train = df[~mask_test]
+        test = df[mask_test]
+
+        mask_test = np.random.rand(len(df)) > val_percent
+        val = train[mask]
+        train = train[~mask]
+
+        return (train, val, vest)
         
-    def split_date(self, column):
-        self.df[column] = pd.to_datetime(self.df[column])
-        self.df["Date_Month"] = self.df[column].dt.month
-        self.df["Date_Day"] = self.df[column].dt.day
-        self.df["Date_Year"] = self.df[column].dt.year
-        self.df.drop(column, axis=1)
+    def split_date(self, df, column):
+        df[column] = pd.to_datetime(df[column])
+        df["Date_Month"] = df[column].dt.month
+        df["Date_Day"] = df[column].dt.day
+        df["Date_Year"] = df[column].dt.year
+        df.drop(column, axis=1)
         
