@@ -1,6 +1,4 @@
-"""
-
-"""
+"""This is the Lambdata Package"""
 
 import numpy
 import pandas
